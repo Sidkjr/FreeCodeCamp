@@ -38,7 +38,7 @@ public:
     }
 
 
-    //Setter and getter for the attribute Name
+    //Setter and getter for the attribute Age
     void setAge(int age) {
         if(age >= 18){
             Age = age;
