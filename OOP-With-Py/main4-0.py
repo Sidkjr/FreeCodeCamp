@@ -11,6 +11,10 @@ class Item:
 
     # A constructor for class Item where we have to implement the instance attributes inside the constructor
     def __init__(self, name: str, price: float, quantity = 0):
+
+        # Run validations or conditions for the recieved arguments
+        assert price >= 0, f"Price {price} is not greater than zero!"
+        assert quantity >= 0, f"Quantity {quantity} is not greater than or equal to 0!"
         
         # Assign to self object the Instance attribute
         self.name = name
@@ -41,11 +45,12 @@ class Item:
             items = list(reader)
         
         for item in items:
+            print(item)
             Item(
                 name = item.get('name'),
-                price = item.get('price'),
-                quantity = item.get('quantity'),
+                price = float(item.get('price')),
+                quantity = float(item.get('quantity')),
             )
 
-print(Item.instantiate_from_csv())
+Item.instantiate_from_csv()
 print(Item.all)
